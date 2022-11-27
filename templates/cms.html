@@ -1,0 +1,173 @@
+<!--  how to use css in python_ flask-->
+
+
+<!-- <center>
+  <p class="page-title">Bahnar Translator</p>
+</center> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>CSS Template</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cms.css') }}" />
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 300px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 300px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<style>
+        h1   {color: white;}
+        p    {color: red;}
+</style>
+
+<section>
+  <nav>
+  	<div>
+      <img
+        class="imgs"
+        src="{{ url_for('static', filename='img/hcmut.png')}}"
+        alt=""
+      />
+	</div>
+    
+<!--    
+  	<div class="form-button">
+       	<input type="submit" name="submit"  value=  " Member List " id="submit" />
+  	</div>
+    -->
+
+        <div class="Member List">
+          <div style="margin-top: 0px; margin-left: 6px">
+            <h1>Member List</h1>
+            <h1 type = "button">Choose page to edit</h1>
+          </div>
+        </div>
+    
+    <ul>
+    <div class="Member List">
+          <div style="margin-top: 30px; margin-left: 6px">
+        
+          <div class="form-button">
+              <input type="submit" name="submit"  value=  "Web1" id="submit"/>
+          </div>
+
+          <div class="form-button">
+              <input type="submit" name="submit"  value=  "Web2" id="submit"/>
+          </div>
+
+          <div class="form-button">
+              <input type="submit" name="submit"  value=  "Web3" id="submit"/>
+          </div>
+
+          <div class="form-button">
+              <input type="submit" name="submit"  value=  "Web4" id="submit"/>
+          </div>
+        </div>
+    </ul>
+  </nav>
+  
+  
+  <article>
+    <h1>Langding Page Conntent Management</h1>
+    
+    <form action="/">
+        <label for="web_name">Web Header</label><br>
+        <input type="text" id="web_name" name="web_name" placeholder="Old header(optional fix)"><br>
+        <br>
+        
+        <label for="web_link">Web Link</label>
+        <br>
+        <input type="text" id="web_link" name="web_link" placeholder="Old link (optional fix)"><br>
+        <br>
+        
+        <label for="web_desc">Web Description</label>
+        <br>
+        <textarea id="web_desc" name="web_desc" placeholder="Old description (optional fix)"
+                    rows="10"
+                    cols="60"></textarea><br>
+        <br>
+
+        <label for="replace_image">Replace Image</label>
+        <br>
+        
+        <div id="dragndropimage" class="uploadimage-dragndrop" style="border: 2px dashed #DDD; margin: 20px 0; padding: 50px 20px; text-align: center; color: #DDD;">
+            <br>
+            <img src="https://cdn-icons-png.flaticon.com/512/338/338864.png" alt="W3Schools.com" style="width:150px;height:150px;">
+            <br>
+            <div class="uploadimage-text">Drop images here</div>
+            <br>
+            <p>Supported formats: PNG, JPG</p>
+            <p>Or</p>
+            <div class="uploadimage-input">
+                <input type="file" 
+                accept="image/png, image/jpeg" multiple="multiple" />
+            </div>
+        </div>
+
+        <input type="submit" value="Update">
+        <br>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/HCMUT_official_logo.png" alt="W3Schools.com" style="width:150px;height:150px;">
+    </form>
+  </article>
+</section>
+
+
+</body>
+</html>
