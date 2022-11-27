@@ -31,8 +31,8 @@
       <div class="other-project">
         <a class="link" href="web4.html"> Web 4</a>
       </div>
-      <a type="button" href="/login" class="btn btn-lg btn-info sign-in">Sign In</button>
-      <a class="register" href="/register">Register</a>
+      <a type="button" href="{{ url_for('register_page') }}" class="btn btn-lg btn-info sign-in">Sign In</button>
+      <a class="register" href="{{ url_for('register_page') }}">Register</a>
     </div>
 
     {% block body %}{% endblock %}

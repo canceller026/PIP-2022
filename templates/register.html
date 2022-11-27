@@ -1,58 +1,63 @@
 {% extends 'base.html' %} {% block head %}
-<link rel="stylesheet" href="css/styles.css" />
-<link rel="stylesheet" href="css/register.css" />
-<title>Bahnar Dictionary</title>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/register.css') }}"
+/>
+<title>Register</title>
 {% endblock %} {% block body %}
-<div class="topnav">
-  <img class="hcmut1-img" src="img/hcmut.png" alt="" />
-  <div class="other-project">
-    <a class="link" href="web1.html"> Web 1</a>
-  </div>
-  <div class="other-project">
-    <a class="link" href="web2.html"> Web 2</a>
-  </div>
-  <div class="other-project">
-    <a class="link" href="web3.html"> Web 3</a>
-  </div>
-  <div class="other-project">
-    <a class="link" href="web4.html"> Web 4</a>
-  </div>
-  <button class="sign-in">Sign In</button>
-  <a class="register" href="register.html">Register</a>
-</div>
-<form method="POST" action="" class="register-form" id="register">
-  <p class="form-title">SIGN UP</p>
-  <div class="form-group-1">
-    <label for="username" class="label-text"> Username</label><br />
-    <input type="text" name="username" id="username" placeholder="username" />
-  </div>
-  <div class="form-group-2">
-    <label for="password" class="label-text"> Password</label> <br />
-    <input
-      type="password"
-      name="password"
-      id="password"
-      placeholder="anhyeuem123"
-    />
-  </div>
-  <div class="form-group-3">
-    <label for="confirm-password" class="label-text"> Confirm Password</label>
-    <br />
-    <input
-      type="password"
-      name="confirm password"
-      id="confirm password"
-      placeholder="anhyeuem123"
-    />
-  </div>
-  <div class="form-button">
-    <input type="submit" name="submit" value="Register" id="submit" />
-  </div>
-</form>
-<img class="translator-img" src="img/translator.jpg" alt="" />
-<div class="copyright">
-  <p>&#169; 2022 HCMUT</p>
-  <img src="img/hcmut.png" alt="" />
-</div>
 
-> {% endblock %}
+<div class="hold">
+  <div class="form-container">
+    <h1>CREATE AN ACCOUNT</h1>
+    <form method="POST" action="/register" class="form-register" id="register">
+      <div class="form-group">
+        <label for="username" class="label-text"> Username</label><br />
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="username"
+        />
+      </div>
+      <div class="form-group">
+        <label for="email" class="label-text"> Email Address</label> <br />
+        <input
+          type="text"
+          name="email"
+          id="email"
+          placeholder="johncarter@gmail.com"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password1" class="label-text"> Password</label> <br />
+        <input
+          type="password"
+          name="password1"
+          id="password1"
+          placeholder="Enter at least 8 characters"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password2" class="label-text"> Confirm Password</label>
+        <br />
+        <input
+          type="password"
+          name="password2"
+          id="password2"
+          placeholder="Re-enter your password"
+        />
+      </div>
+      <div class="form-button">
+        <input type="submit" name="submit" value="Register" id="submit" />
+      </div>
+    </form>
+  </div>
+  <img
+    class="translator-img"
+    src="{{
+  url_for('static',filename='img/translator.jpg') }}"
+    alt=""
+  />
+</div>
+<p>{{message}}</p>
+{% endblock %}

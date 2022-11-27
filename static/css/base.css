@@ -48,54 +48,6 @@ button:hover {
 }
 
 
-input {
-  border-radius: 6px;
-  background: #eeecec;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  width: 400px;
-  height: 3px;
-}
-.label-text {
-  font-weight: bold;
-}
-.form-title {
-  width: 170px;
-  height: 46px;
-
-  font-family: "Arial";
-  font-weight: 700;
-  font-size: 40px;
-  line-height: 46px;
-  color: #000000;
-}
-.form-group-1 {
-  position: absolute;
-  width: 444px;
-  height: 78px;
-  padding-top: 50px;
-}
-.form-group-2 {
-  width: 444px;
-  height: 78px;
-  padding-top: 30px;
-}
-#submit {
-    background-color: #498DF2;
-    border-radius:6px;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    border:none;
-    width: 400px;
-    height: 60px;
-}
-
-.translator-img {
-  width: 708px;
-  height: 452px;
-}
 .copyright{
   display: flex;
   align-items: center;
