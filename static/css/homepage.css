@@ -19,19 +19,20 @@
     margin-top: 80px;
 }
 .holder h1{
-    width: 150px;
-    height: 57px;
+    width: 300px;
+    height: 120px;
     font-weight: 700;
-    font-size: 50px;
+    font-size: 35px;
     line-height: 57px;
 }
 .holder h2{
-    width: 354px;
-    height: 34px;
+    width: 500px;
+    height: 80px;
     font-weight: 400;
     font-size: 20px;
     line-height: 34px;
-    color: #9095A0FF;   
+    color: #9095A0FF;
+    white-space: pre-wrap;
 }
 .subholder{
     display:flex;
