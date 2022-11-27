@@ -16,10 +16,8 @@
   />
 </div>
 <div class="holder">
-  {%set counter =0 %}
   {%for item in info%}
-  {%set counter = counter+1 %}
-  {% ifequal counter%2 0 %}
+  {% if loop.index is divisibleby (2) %}
   <div class="subholder">
     <img
       class="project-img"
@@ -49,7 +47,7 @@
       alt=""
     />
   </div>
-  {% endifequal %}
+  {% endif %}
   {% endfor %}
 </div>
 <!--

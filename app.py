@@ -72,3 +72,8 @@ def logout_page():
 @app.route('/member')
 def member_page():
     return render_template("about.html")
+
+@app.route('/cms', methods = ['GET', 'POST'])
+def cms_page():
+    if request.method == 'POST':
+        return render_template("base.html")
