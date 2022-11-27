@@ -1,7 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session,redirect
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from forms import SignUpForm
+from random import randint
+import hashlib
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '7a9097f3b37240fe8dbc99bc'
@@ -14,9 +16,23 @@ user_pwd = db["Webmaster"]
 def home_page():
     return render_template("homepage.html")
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login_page():
-    return render_template("login.html")
+    msg = ''
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        h_password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        authenticate = user_pwd.find_one({"username": username, "h_password": h_password})
+        if authenticate:
+            session['logged_in'] = True
+            session['id'] = authenticate['adminID']
+            session['username'] = authenticate['username']
+            msg = 'Logged in successfully !'
+            #return render_template("CMS.html")
+        else:
+            msg = 'Incorrect username / password !'
+    return render_template("login.html", message = msg)
 
 @app.route('/register', methods =['GET', 'POST'])
 def register_page():
@@ -29,4 +45,25 @@ def register_page():
         user_found = user_pwd.find_one({"username": username})
         if user_found:
             msg = "This username has been used, please choose another username"
+        elif not username or not password1 or not email or not password2:
+            msg = 'Please fill out the form !'
+        elif ("@gmail.com" not in email):
+            msg = "Invalid Email Address"
+        elif password1 != password2:
+            msg = "Password not match"
+        elif len(password1) < 8:
+            msg = "Password too short"
+        else:
+            adminID = randint(10000000,99999999)
+            h_password = hashlib.sha256(password1.encode('utf-8')).hexdigest()
+            new_user = {"adminID": adminID, "h_password" : h_password, "password": password1, "username": username}
+            user_pwd.insert_one(new_user)
+        
     return render_template("register.html",message =msg)
+
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    return redirect(url_for('login_page'))
