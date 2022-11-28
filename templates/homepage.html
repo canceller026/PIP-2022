@@ -1,13 +1,15 @@
 {%extends 'base.html' %} {% block head %}
+<title>Homepage</title>
 <link
   rel="stylesheet"
   href="{{ url_for('static', filename='css/homepage.css') }}"
 />
 {% endblock %} {%block body %}
-
 <center>
-  <p class="page-title">Bahnar Translator</p>
+  <p class="page-title center">Bahnar Translator</p></div>
 </center>
+
+
 <div>
   <img
     class="imgs"
@@ -27,7 +29,7 @@
     <div>
       <h1>{{item.Header}}</h1>
       <h2>{{item.Description}}</h2>
-      <a href="{{item.link}}" type="button" class="btn btn-lg btn-info"
+      <a target="_blank" href="{{item.Link}}" type="button" class="btn btn-lg btn-info"
         >Visit</a
       >
     </div>
@@ -37,7 +39,7 @@
     <div>
       <h1>{{item.Header}}</h1>
       <h2>{{item.Description}}</h2>
-      <a href="{{item.link}}" type="button" class="btn btn-lg btn-info"
+      <a target="_blank" href="{{item.Link}}" type="button" class="btn btn-lg btn-info"
         >Visit</a
       >
     </div>

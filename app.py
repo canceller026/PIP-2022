@@ -32,7 +32,7 @@ def login_page():
             session['id'] = authenticate['adminID']
             session['username'] = authenticate['username']
             msg = 'Logged in successfully !'
-            #return render_template("CMS.html")
+            return redirect(url_for('cms_page'))
         else:
             msg = 'Incorrect username / password !'
     return render_template("login.html", message = msg)
@@ -61,6 +61,7 @@ def register_page():
             h_password = hashlib.sha256(password1.encode('utf-8')).hexdigest()
             new_user = {"adminID": adminID, "h_password" : h_password, "password": password1, "username": username, "email": email}
             webmaster.insert_one(new_user)
+            return redirect(url_for('login_page'))
         
     return render_template("register.html",message =msg)
 

@@ -87,6 +87,7 @@ input{
 #description{
   height: 147px;
   text-align: left;
+  white-space: pre-wrap;
 }
 #submit {
   background-color: #498DF2;
